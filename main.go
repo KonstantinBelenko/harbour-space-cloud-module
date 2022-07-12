@@ -7,7 +7,7 @@ import "log"
 
 func main() {
 	http.HandleFunc("/host_id", ReturnUUID) 
-	http.ListenAndServe(":8080", nil)
+	http.ListenAndServe(":80", nil)
 }
 
 func ReturnUUID(w http.ResponseWriter, r *http.Request) {
