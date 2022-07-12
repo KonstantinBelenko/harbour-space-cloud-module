@@ -2,13 +2,19 @@ package main
 
 import "fmt"
 import "net/http"
+import "os/exec"
+import "log"
 
 func main() {
-	http.HandleFunc("/", HelloServer)
+	http.HandleFunc("/host_id", ReturnUUID) 
 	http.ListenAndServe(":8080", nil)
 }
 
-func HelloServer(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintf(w, "Hello, %s!", r.URL.Path[1:])
-}
+func ReturnUUID(w http.ResponseWriter, r *http.Request) {
+	newUUID, err := exec.Command("uuidgen").Output()
+	if err != nil {
+		log.Fatal(err)
+	}
 
+	fmt.Fprintf(w, "UUID: %s", newUUID)
+}
