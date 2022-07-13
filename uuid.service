@@ -1,8 +1,0 @@
-[Unit]
-Description=Golang Webserver that generates UUID on :/host_id
-
-[Service]
-ExecStart=/home/ec2-user/main
-
-[Install]
-WantedBy=multi-user.target
