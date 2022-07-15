@@ -1,12 +1,8 @@
 [Unit]
-Description=This app displays UUID
-After=network.target
+Description=Shell script that starts up the server
 
 [Service]
-Environment=NODE_PORT=80
-Type=simple
-ExecStart=/usr/bin/node /home/harbour-space-cloud-module/server.js
-Restart=on-failure
+ExecStart=/home/ec2-user/harbour-space-cloud-module/scripts/start_server.sh
 
 [Install]
 WantedBy=multi-user.target
