@@ -2,7 +2,7 @@ const express = require("express")
 const app = express()
 const crypto = require('crypto');
 
-const PORT = process.env.PORT || 3000
+const PORT = process.env.PORT || 80
 let works = true;
 
 app.get('/host_id', (req, res) => {
