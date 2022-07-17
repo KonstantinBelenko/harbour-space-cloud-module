@@ -1,11 +1,9 @@
 version: "3.9"
 
 services: 
-
   web1:
     depends_on:
       - loadbalancer
-
     build: ./backend
     ports:
       - 3000:3000
@@ -15,7 +13,6 @@ services:
   web2:
     depends_on:
       - loadbalancer
-
     build: ./backend
     ports:
       - 3001:3001
@@ -25,7 +22,6 @@ services:
   web3:
     depends_on:
       - loadbalancer
-
     build: ./backend
     ports:
       - 3002:3002
