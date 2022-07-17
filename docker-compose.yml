@@ -1,0 +1,40 @@
+version: "3.9"
+
+services: 
+
+  web1:
+    depends_on:
+      - loadbalancer
+
+    build: ./backend
+    ports:
+      - 3000:3000
+    environment:
+      - PORT=3000
+  
+  web2:
+    depends_on:
+      - loadbalancer
+
+    build: ./backend
+    ports:
+      - 3001:3001
+    environment:
+      - PORT=3001
+
+  web3:
+    depends_on:
+      - loadbalancer
+
+    build: ./backend
+    ports:
+      - 3002:3002
+    environment:
+      - PORT=3002
+
+  loadbalancer:
+    build: ./loadbalancer
+    ports:
+      - 80:80
+    environment:
+      - HOST=3.120.206.243
